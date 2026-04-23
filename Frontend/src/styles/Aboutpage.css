@@ -1,0 +1,128 @@
+/* General Styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f7e7; /* Cream background */
+  color: #2f855a; /* Green theme */
+}
+
+.about-section {
+  padding: 6rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.about-heading {
+  font-size: 3rem;
+  color: #2f855a;
+  animation: fadeInDown 1.5s ease-in-out;
+  letter-spacing: 1.5px;
+  margin-bottom: 2rem;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.developer-card {
+  background-color: #1f2937; /* Dark background */
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  color: #e2e8f0; /* Light text */
+  animation: slideInUp 1s ease-in-out;
+}
+
+.developer-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.developer-img {
+  width: 200px; /* Larger and more visible */
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  border: 5px solid #38a169; /* Green border for consistency */
+  object-fit: cover;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.developer-card:hover .developer-img {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(56, 161, 105, 0.5);
+}
+
+.developer-info h2 {
+  font-size: 1.8rem;
+  color: #48bb78; /* Bright green for name */
+  margin-bottom: 0.5rem;
+}
+
+.developer-info h3 {
+  font-size: 1.2rem;
+  color: #a0aec0; /* Muted green for title */
+  margin-bottom: 1rem;
+}
+
+.developer-info p {
+  font-size: 1rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .developer-card {
+    padding: 2rem;
+  }
+
+  .developer-img {
+    width: 180px;
+    height: 180px;
+  }
+}

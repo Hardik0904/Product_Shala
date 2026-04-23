@@ -1,0 +1,106 @@
+/* src/Components/NavBar/NavBar.css */
+
+.nav-wrapper {
+  background: rgba(20, 53, 20, 0.9); /* more pronounced green */
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+}
+
+.nav-content {
+  max-width: 1300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+.nav-head {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  padding-right: 10px;
+  width: 2.5rem;
+  height: auto;
+}
+
+.nav-head h3 {
+  font-size: 1.4rem;
+  color: #e6e6cc; /* cream color */
+  font-weight: 600;
+  margin: 0;
+}
+
+.nav-content ul {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* increased gap for spacing */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-content li {
+  margin: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #e6e6cc; /* cream color */
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #66cc66; /* light green on hover */
+}
+
+.nav-link::before {
+  content: "";
+  width: 2rem;
+  height: 0.15rem;
+  background: linear-gradient(90deg, #66cc66 0%, #2e8b57 100%);
+  border-radius: 0.5rem;
+  position: absolute;
+  bottom: -0.3rem;
+  opacity: 0;
+  transform: translateX(-1.5rem);
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover::before {
+  width: 100%;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.contact-btn {
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff; /* white text */
+  background: linear-gradient(90deg, #66cc66 0%, #2e8b57 100%);
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* button shadow for depth */
+}
+
+.contact-btn:hover {
+  color: #66cc66; /* green text on hover */
+  background: #e6e6cc; /* cream background */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* larger shadow on hover */
+}
