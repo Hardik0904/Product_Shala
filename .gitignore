@@ -2,9 +2,7 @@
 __pycache__/
 *.pyc
 venv/
-
-# Node
-node_modules/
+.venv/
 
 # Env
 .env
@@ -12,8 +10,8 @@ node_modules/
 # OS
 .DS_Store
 
-
-# ML Models
-*.keras
-*.h5
-*.pkl
+# NOTE: model/*.keras and model/tokenizer.pkl are intentionally NOT
+# ignored - they're small (~4MB total) and the app is broken without
+# them. Commit them, or if they grow too large later, host them
+# externally and download in a setup step instead of silently excluding
+# them from git.

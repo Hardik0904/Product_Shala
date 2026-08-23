@@ -1,5 +1,51 @@
-*{
+:root {
+  /* Paper / ink token system - "receipt & rubber stamp" theme */
+  --paper: #ece6d6;
+  --paper-shadow: #ddd5bf;
+  --bg: #dcd4bd;
+  --ink: #2a2620;
+  --ink-soft: #746b58;
+  --line: #c7bea3;
+
+  --ink-positive: #3f6b4a;
+  --ink-negative: #a63d31;
+  --ink-neutral: #a1791f;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  background-image: radial-gradient(circle at 1px 1px, rgba(42, 38, 32, 0.05) 1px, transparent 0);
+  background-size: 22px 22px;
+  color: var(--ink);
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+::selection {
+  background: var(--ink-neutral);
+  color: var(--paper);
 }
