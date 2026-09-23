@@ -1,4 +1,4 @@
-# ProductShala (rebuilt)
+# ProductShala 
 
 A full-stack app that classifies product/service reviews as Positive,
 Negative, or Neutral using a Bidirectional LSTM, with explicit handling
@@ -24,40 +24,6 @@ npm run dev               # -> http://localhost:5173
 Open the frontend URL, type a review (or click one of the example chips),
 and hit "Stamp it".
 
-## What changed from the original version
-
-**Backend**
-1. **The trained model was never actually in the repo.** The old
-   `.gitignore` excluded `*.keras` / `*.pkl`, so `Backend/model/` didn't
-   exist after cloning and the app crashed on startup. This version
-   commits the (small, ~4MB) model files directly.
-2. **Negation handling.** `preprocessing.py` rewrites words in the scope
-   of a negation cue into distinct tokens, e.g. `"not good"` →
-   `not good_NEG`. This gives the model a separate vocabulary item for
-   "good-negated" vs "good", instead of relying on it to somehow infer
-   that "not" flips meaning. The training data is also augmented with
-   ~2,600 templated negation examples (`"X is not good"` vs `"X is
-   good"`, etc.) since the real dataset barely contains any negation
-   examples on its own.
-3. **Same preprocessing at train and predict time.** Both
-   `train_model.py` and `data_predict.py` import the *same*
-   `preprocess_text()` function from `preprocessing.py`, so there's no
-   risk of the cleaning logic drifting between training and serving
-   (a common source of silent bugs).
-4. Removed the leftover hardcoded `/data` test endpoint from `app.py`.
-
-**Frontend**
-1. **`react-router-dom` was imported but never listed as a dependency** —
-   `npm install` followed by `npm run dev` would crash immediately.
-2. **`SignupPage` and `DashBoard` were imported in `App.jsx` but the
-   files didn't exist in the repo** — another guaranteed crash on load.
-3. **The API call was hardcoded to `http://172.20.10.3:5000`** — someone's
-   personal WiFi IP, not `localhost`, so it could never have worked for
-   anyone else who cloned the repo.
-4. Rebuilt as a single focused page (the old Login/Signup/About/Contact/
-   Dashboard pages were unused stubs, not part of the actual product) —
-   a "review slip" you fill in that gets stamped with the sentiment
-   verdict, live against the real model.
 
 ## Project structure
 
